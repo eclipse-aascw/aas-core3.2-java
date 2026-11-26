@@ -1,0 +1,44 @@
+// SPDX-FileCopyrightText: 2025 aas-core3.2-java AUTHORS
+//
+// SPDX-License-Identifier: MIT
+
+package aas_core.aas3_2.generation;
+
+import aas_core.aas3_2.common.*;
+import aas_core.aas3_2.types.enums.*;
+import aas_core.aas3_2.types.impl.*;
+import aas_core.aas3_2.types.model.*;
+import java.util.List;
+
+/** Builder for the Environment type. */
+public class EnvironmentBuilder {
+  /** Asset Administration Shell */
+  private List<IAssetAdministrationShell> assetAdministrationShells;
+
+  /** Submodel */
+  private List<ISubmodel> submodels;
+
+  /** Concept description */
+  private List<IConceptDescription> conceptDescriptions;
+
+  public EnvironmentBuilder setAssetAdministrationShells(
+      List<IAssetAdministrationShell> assetAdministrationShells) {
+    this.assetAdministrationShells = assetAdministrationShells;
+    return this;
+  }
+
+  public EnvironmentBuilder setSubmodels(List<ISubmodel> submodels) {
+    this.submodels = submodels;
+    return this;
+  }
+
+  public EnvironmentBuilder setConceptDescriptions(List<IConceptDescription> conceptDescriptions) {
+    this.conceptDescriptions = conceptDescriptions;
+    return this;
+  }
+
+  public Environment build() {
+    return new Environment(
+        this.assetAdministrationShells, this.submodels, this.conceptDescriptions);
+  }
+}

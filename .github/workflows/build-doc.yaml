@@ -1,0 +1,31 @@
+# SPDX-FileCopyrightText: 2026 aas-core3.2-java AUTHORS
+#
+# SPDX-License-Identifier: MIT
+
+name: Build Documentation
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'corretto'
+
+      - name: Create javadoc
+        run: mvn javadoc:javadoc
+
+      - name: Deploy to gh-pages 🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: target/site/apidocs/
