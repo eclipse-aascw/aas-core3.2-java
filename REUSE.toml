@@ -10,3 +10,47 @@ path = ["AUTHORS"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2026 aas-core3.2-java AUTHORS"
 SPDX-License-Identifier = "MIT"
+
+# Verbatim text and configurations that cannot be annotated by format, as
+# the snippets are spliced into the generated code and the semantic-patching
+# test data is compared byte-by-byte.
+[[annotations]]
+path = [
+  "dev_scripts/codegen/snippets/**",
+  "dev_scripts/continuous_integration_of_dev_scripts/pylint.rc",
+  "dev_scripts/semantic-patching/test-data/**",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 aas-core3.2-java AUTHORS"
+SPDX-License-Identifier = "MIT"
+
+# Test data and the recorded test outputs are generated and compared
+# byte-by-byte, and JSON can not carry a comment.
+[[annotations]]
+path = ["test_data/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 aas-core3.2-java AUTHORS"
+SPDX-License-Identifier = "MIT"
+
+# The documentation.
+[[annotations]]
+path = ["README.md", "CONTRIBUTING.md", "dev_scripts/semantic-patching/README.md", "doc/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 aas-core3.2-java AUTHORS"
+SPDX-License-Identifier = "MIT"
+
+# The meta-model transcribes the AAS specification: its docstrings quote
+# the definitions of the classes, attributes and constraints. That text keeps
+# the license of the specification (published by IDTA under CC BY 4.0).
+[[annotations]]
+path = ["dev_scripts/codegen/meta_model.py"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Industrial Digital Twin Association e. V."
+SPDX-License-Identifier = "CC-BY-4.0"
+
+# The revision of the test data, read verbatim by the update script.
+[[annotations]]
+path = ["src/test/java/testgen_rev.txt"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 aas-core3.2-java AUTHORS"
+SPDX-License-Identifier = "MIT"
